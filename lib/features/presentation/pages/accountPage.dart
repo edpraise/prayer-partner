@@ -10,8 +10,17 @@ class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF206040),
       body: Container(
+         decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment(0.05, 0.9),
+                colors: [
+                  Color(0xFF13131D),
+                  Color(0xFF232A4E),
+                  Color(0xFF13131D),
+                ]),
+          ),
         child: Column(
           children: <Widget>[
             Padding(

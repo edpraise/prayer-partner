@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 
 class ChildBearing extends StatefulWidget {
   @override
@@ -10,21 +11,94 @@ class _ChildBearingState extends State<ChildBearing> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
-      child: Column(
-        children: [
-          Text('Title here'),
-          Text('Revelations 12:1',style: TextStyle(fontWeight: FontWeight.bold),),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("""
-            A great sign appeared in heaven: a woman clothed with the sun,
-             with the moon under her feet and a crown of twelve stars on her head. 2 She was pregnant and cried out in pain as she was about to give birth. 3 Then another sign appeared in heaven: an enormous red dragon with seven heads and ten horns and seven crowns on its heads. 4 Its tail swept a third of the stars out of the sky and flung them to the earth. The dragon stood in front of the woman who was about to give birth, so that it might devour her child the moment he was born. 5 She gave birth to a son, a male child, who “will rule all the nations with an iron scepter.”[a] And her child was snatched up to God and to his throne. 6 The woman fled into the wilderness to a place prepared
-             for her by God, where she might be taken care of for 1,260 days.
-            """),
+      child: Container(
+          child: Swiper(
+        itemBuilder: (BuildContext context, int index) {
+          return Stack(
+            children: 
+            [Container(
+              height: MediaQuery.of(context).size.height/2,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: Column(
+                children: [
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      shape: BoxShape.circle
+                    ),
+                    child: Image.asset('assets/images/4.png'),
+                  ),
+                   SizedBox(height: 20,),
+                  Container(
+                    height: 150,
+                    width: 150,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(''''Plead my cause, O Lord, with them that strive with me: fight against them that fight against me. 2 Take hold of shield and buckler, and stand up for mine help.3 Draw out also the spear, and stop the way against them that persecute me: say unto my soul, I am thy salvation.'''''),
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+                  Container(
+                    height: 6,
+                    width: MediaQuery.of(context).size.width/2,
+                    decoration: BoxDecoration(
+                      color: Colors.black
+                    ),
+                  ),
+                   SizedBox(height: 20,),
+                  Padding(
+                    padding: const EdgeInsets.only(left:90.0, right: 15),
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 1,
+                          width: 30,
+                          decoration: BoxDecoration(
+                            color: Colors.black
+                          ),
+                        ),
+                        Text('Psalm 35'),
+                         Container(
+                          height: 1,
+                          width: 30,
+                          decoration: BoxDecoration(
+                            color: Colors.black
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+
+                ],
+              ),
+
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children:[
+                  Icon(Icons.favorite),
+                  Icon(Icons.more_vert_outlined)
+
+                ]
+              ),
+            )
+            ],
+          );
+        },
+        itemCount: 10,
+        itemWidth: 300.0,
+        itemHeight: 500.0,
+        layout: SwiperLayout.TINDER,
+      )
+        
           ),
-          
-        ],
-      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prayer_partner/features/presentation/models/categoryModel.dart';
+import 'package:prayer_partner/features/presentation/models/subCategoryModel,.dart';
 import 'package:prayer_partner/features/presentation/pages/sidemenueBar.dart';
 // import 'package:prayer_partner/features/presentation/models/subCategoryModel,.dart';
 import 'package:prayer_partner/features/presentation/widgets/search_widget.dart';
@@ -24,29 +25,54 @@ class _HomePageState extends State<HomePage> {
     Categories(title: 'Profram', icon: Icons.wifi),
   ];
 
-  List subCategory = [
-    
+  List<SubCategories> subCategories = <SubCategories>[
+    // SubCategories(
+    //   title: 'Home',
+    //   imgUrl: 'assets/images/1.jpg',
+    //   number: '60',
+    // ),
+    SubCategories(
+        title: 'Health', number: '60 ', imgUrl: 'assets/images/1.jpg'),
+    SubCategories(
+        title: 'Health', number: '60 ', imgUrl: 'assets/images/2.jpg'),
+    SubCategories(
+        title: 'Health', number: '60 ', imgUrl: 'assets/images/2.jpg'),
+    SubCategories(
+        title: 'Health', number: '60 ', imgUrl: 'assets/images/3.jpg'),
+    SubCategories(
+        title: 'Health', number: '60 ', imgUrl: 'assets/images/2.jpg'),
+    SubCategories(
+        title: 'Health', number: '60 ', imgUrl: 'assets/images/2.jpg'),
+    SubCategories(
+        title: 'Health', number: '60 ', imgUrl: 'assets/images/2.jpg'),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF206040),
+      backgroundColor: Color(0xFF13131D),
       appBar: AppBar(
-          elevation: 0.0,
-          backgroundColor: Color(0xFF206040),
-          ),
-
-          drawer: MainDrawer(),
-          
+        elevation: 0.0,
+        backgroundColor: Color(0xFF13131D),
+      ),
+      drawer: MainDrawer(),
       body: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.only(top:10.0),
-                child: Container(
-          child: (
-            Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+        child: Padding(
+          padding: const EdgeInsets.only(top: 10.0),
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment(0.05, 0.9),
+                  colors: [
+                    Color(0xFF13131D),
+                    Color(0xFF232A4E),
+                    Color(0xFF13131D),
+                  ]),
+            ),
+            child: (Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
                 // Container(
                 //   height: 10,
                 // ),
@@ -60,11 +86,18 @@ class _HomePageState extends State<HomePage> {
                         height: 50,
                         width: 40,
                         decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment(0.05, 0.9),
+                                colors: [
+                                  Color(0xFFb3b3b3),
+                                  Colors.white,
+                                ]),
                             borderRadius: BorderRadius.circular(40),
-                            color: Colors.yellow),
+                            color: Colors.white),
                         child: Icon(
                           Icons.tune_sharp,
-                          color: Colors.white,
+                          color: Colors.black,
                           size: 30,
                         ),
                       ),
@@ -74,7 +107,8 @@ class _HomePageState extends State<HomePage> {
                 // SizedBox(),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
-                  child: Text("Categories", style: TextStyle(color: Colors.white)),
+                  child:
+                      Text("Categories", style: TextStyle(color: Colors.white)),
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height / 3.9,
@@ -85,92 +119,107 @@ class _HomePageState extends State<HomePage> {
                     children: List.generate(categories.length, (index) {
                       return Center(
                           child: CategoryListing(
-                              icon: Icon(categories[index].icon),
-                              title: categories[index].title,
-                              color: Colors.blueGrey));
+                        icon: Icon(categories[index].icon),
+                        title: categories[index].title,
+                        color: Color(0xFF13131D),
+                      ));
                     }),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
-                  child:
-                      Text('Sorting Training', style: TextStyle(color: Colors.white)),
+                  child: Text('Sorting Training',
+                      style: TextStyle(color: Colors.white)),
                 ),
-             SubCategories()
-                // CategoryListing()
-            ],
-          )),
+
+                Container(
+                  height: MediaQuery.of(context).size.height / 3.9,
+                  child: GridView.count(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 20.0,
+                    mainAxisSpacing: 20.0,
+                    children: List.generate(subCategories.length, (index) {
+                      return Center(
+                          child: ListingSubPage(
+                        title: subCategories[index].title,
+                        number: subCategories[index].number,
+                        imgUrl: subCategories[index].imgUrl,
+                      ));
+                    }),
+                  ),
+                ),
+                // SubCategories()
+              ],
+            )),
+          ),
         ),
-              ),
       ),
     );
   }
 }
 
-class SubCategories extends StatelessWidget {
-  const SubCategories({
+class ListingSubPage extends StatelessWidget {
+  final String title;
+  final String number;
+  final String imgUrl;
+  const ListingSubPage({
     Key key,
+    this.title,
+    this.number,
+    this.imgUrl,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left:15.0, top: 10),
+      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
       child: Container(
-        height: 120,
-        width: 170,
+        height: 150,
+        width: 200,
         decoration: BoxDecoration(
-          color: Colors.blueGrey,
-          borderRadius: BorderRadius.circular(20) 
+          color: Color(0xFF13131D),
+          boxShadow: [
+            BoxShadow(
+              color: Color(0xFF13131D).withOpacity(0.9),
+              spreadRadius: 1,
+              blurRadius: 7,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
         ),
         child: Row(
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-             Padding(
-               padding: const EdgeInsets.all(10.0),
-               child: Container(
-                 height: 30,
-                 width: 30,
-                 decoration: BoxDecoration(
-                   color: Color(0xFFBF3E9D),
-                   borderRadius: BorderRadius.circular(20),
-                 ),
-                 child: Icon(Icons.person, color: Colors.red),
-               )
-             ),
-           SizedBox(width: 10,),
-           Column(
-             mainAxisAlignment: MainAxisAlignment.center,
-             children: [
-               Text('Trainer', style: TextStyle(color: Colors.white, fontSize: 20)),
-               Text('45mins', style: TextStyle(color: Colors.grey))
-             ],
-           ),
-           Expanded(child: Container()),
-           Padding(
-             padding: const EdgeInsets.all(8.0),
-             child: Container(
-               height: 120,
-               width: 30,
-               decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
-               child: Padding(
-                 padding: const EdgeInsets.all(8.0),
-                 child: Column(
-                   children: [
-                     Container(
-                       height: 10,
-                       width: 20,
-                       decoration: BoxDecoration(
-                         color:Colors.red,
-                         borderRadius: BorderRadius.circular(40)
-                       ),
-                     ),
-                   ],
-                 ),
-               ),
-             ),
-           )
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left:4.0),
+                    child: Text(title, style: TextStyle(color: Colors.white)),
+                  ),
+                ),
+                Row(
+                  children: [
+                    Text(number, style: TextStyle(color: Colors.white)),
+                    Text('Cards', style: TextStyle(color: Colors.white)),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(width: 10),
+            Container(
+              height: 100,
+              width: 80,
+              decoration: BoxDecoration(color: Colors.white),
+              child: Image(
+                fit: BoxFit.cover,
+                image: AssetImage(imgUrl)),
+              )
+            
           ],
-          
         ),
       ),
     );
@@ -199,7 +248,10 @@ class CategoryListing extends StatelessWidget {
             color: color, borderRadius: BorderRadius.circular(15)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [icon, Text(title)],
+          children: [
+            icon,
+            Text(title, style: TextStyle(color: Colors.white)),
+          ],
         ),
       ),
     );

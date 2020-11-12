@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:prayer_partner/features/presentation/pages/accountPage.dart';
 import 'package:prayer_partner/features/presentation/pages/addTextPage.dart';
-import 'package:prayer_partner/features/presentation/pages/connectPage.dart';
 import 'package:prayer_partner/features/presentation/pages/homePage.dart';
 import 'package:prayer_partner/features/presentation/pages/notificationPage.dart';
+import 'package:prayer_partner/features/presentation/pages/testimoniesPage.dart';
 
 class BottomNavBar extends StatefulWidget {
   @override
@@ -41,7 +41,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white,
         showUnselectedLabels: false,
-        backgroundColor: Color(0xFF206040),
+        backgroundColor:  Color(0xFF13131D),
           onTap: (int index) {
             setState(() {
               currentTabbedIndex = index;

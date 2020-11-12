@@ -15,9 +15,9 @@ class _AddScriptState extends State<AddScript> {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        backgroundColor: Color(0xFF206040),
+        backgroundColor:  Color(0xFF13131D),
         appBar: AppBar(
-          backgroundColor: Color(0xFF206040),
+          backgroundColor:  Color(0xFF13131D),
           elevation: 0.0,
           title: Text('Family', style: TextStyle(color: Colors.white)),
           centerTitle: true,
@@ -45,6 +45,7 @@ class _AddScriptState extends State<AddScript> {
           ),
         ),
         body: TabBarView(
+          physics: NeverScrollableScrollPhysics(),
             children: [ChildBearing(), Christ(), Finance(), Health()]),
       ),
     );

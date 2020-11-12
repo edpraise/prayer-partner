@@ -12,14 +12,26 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF206040),
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Color(0xFF206040),
-      ),
+      backgroundColor: Color(0xFF13131D),
+      // appBar: AppBar(
+      //   elevation: 0.0,
+      //   backgroundColor: Color(0xFF13131D),
+      // ),
       body: SafeArea(
               child: SingleChildScrollView(
           child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment(0.05,0.9),
+                colors: [
+                   Color(0xFF13131D),
+                   Color(0xFF232A4E),
+                   Color(0xFF13131D),
+
+                ]
+              )
+            ),
               child: Column(
             children: [
               Container(
@@ -27,15 +39,18 @@ class _LoginPageState extends State<LoginPage> {
                 
                 ),
               child: Padding(
-                padding: const EdgeInsets.only(top: 40.0),
+                padding: const EdgeInsets.only(top: 20.0),
                 child: Center(
                   child: CircularProfileAvatar(
                    '',
-                    child: FlutterLogo(),
+                    child:Image(
+                      color: Colors.black,
+                    fit: BoxFit.cover,
+                    image: AssetImage('assets/images/4.png')),
                     borderColor: Color(0xFFFF8F00),
                     borderWidth: 0,
                     elevation: 2,
-                    radius: 60,
+                    radius: 80,
 
                   ),
                 ),
@@ -78,8 +93,8 @@ class _LoginPageState extends State<LoginPage> {
                     height: 50,
                     width: MediaQuery.of(context).size.width/1.3,
                     decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(20)
+                      color: Color(0xFFD1CBCB),
+                      borderRadius: BorderRadius.circular(10)
                     ),
                     child: Center(
                       child: Text(
@@ -90,25 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              // FlatButton(
-              //   minWidth: MediaQuery.of(context).size.width / 1.3,
-              //   height: 50,
-              //   color: Color(0xFFffff99),
-              //   shape: RoundedRectangleBorder(
-              //     borderRadius: BorderRadius.circular(10.0),
-              //   ),
-              //   child: GestureDetector(
-              //     onTap: () {
-              //       Navigator.push(context,
-              //           MaterialPageRoute(builder: (context) => BottomNavBar()));
-              //     },
-              //     child: Text(
-              //       'LOGIN',
-              //       style: TextStyle(fontSize: 20),
-              //     ),
-              //   ),
-              //   onPressed: () {},
-              // ),
+            
               SizedBox(
                 height: 20,
               ),
@@ -136,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     child: Text('SIGN UP',
                         style: TextStyle(
-                            color: Colors.yellow, fontWeight: FontWeight.bold)),
+                            color: Color(0xFFaba41d), fontWeight: FontWeight.bold)),
                   )
                 ],
               )

@@ -11,7 +11,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF206040),
+      backgroundColor: Color(0xFF13131D),
       // appBar: AppBar(
       //   elevation: 0.0,
       //   backgroundColor: Color(0xFF206040),
@@ -28,6 +28,18 @@ class _RegistrationPageState extends State<RegistrationPage> {
       body: SafeArea(
               child: SingleChildScrollView(
           child: Container(
+             decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment(0.05,0.9),
+                colors: [
+                   Color(0xFF13131D),
+                   Color(0xFF232A4E),
+                   Color(0xFF13131D),
+
+                ]
+              )
+            ),
               child: Column(
             children: [
                Container(
@@ -39,7 +51,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 child: Center(
                   child: CircularProfileAvatar(
                    '',
-                    child: FlutterLogo(),
+                    child: Image(
+                      color: Colors.black,
+                    fit: BoxFit.cover,
+                    image: AssetImage('assets/images/4.png')),
                     borderColor: Color(0xFFFF8F00),
                     borderWidth: 0,
                     elevation: 2,
@@ -117,7 +132,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
               FlatButton(
                 minWidth: MediaQuery.of(context).size.width / 1.3,
                 height: 50,
-                color: Colors.grey,
+                color: Color(0xFFD1CBCB),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
@@ -153,7 +168,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     },
                                     child: Text('LOGIN',
                         style: TextStyle(
-                            color: Colors.yellow, fontWeight: FontWeight.bold)),
+                            color: Color(0XFFaba41d), fontWeight: FontWeight.bold)),
                   )
                 ],
               )

@@ -7,8 +7,8 @@ class SearchField extends StatelessWidget {
       padding: const EdgeInsets.only(left:8.0, right: 8),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.blueGrey,
-          borderRadius: BorderRadius.circular(32),
+          color:  Color(0xFF232A4E),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: TextField(
           decoration: InputDecoration(
@@ -17,13 +17,13 @@ class SearchField extends StatelessWidget {
             hintStyle: TextStyle(color: Colors.grey),
             prefixIcon: Icon(Icons.search, color: Colors.grey, size: 30,),
             suffixIcon: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(20.0),
               child: Container(
                 height: 0,
                 width: 0,
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20)
+                  // color: Colors.white,
+                  borderRadius: BorderRadius.circular(10)
                 ),
                 child: Icon(Icons.cancel_outlined, color: Colors.yellow)),
             ),

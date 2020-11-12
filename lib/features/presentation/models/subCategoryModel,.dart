@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 
 class SubCategories {
   final String title;
-  final String time;
-  final IconData iconData;
+  final String number;
+  final String imgUrl;
 
-  SubCategories(this.title, this.time, this.iconData);
+  SubCategories({this.title, this.number, this.imgUrl});
 }
