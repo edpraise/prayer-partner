@@ -11,79 +11,125 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  int currentTabbedIndex = 0;
-  HomePage homePage;
-  AccountPage accountPage;
-  NotifyPage notifyPage;
-  AddScript addScript;
-  Connect connect;
-  List<Widget> pages;
-  Widget currentPage;
+  int currentTab = 0;
+  final List<Widget> pages = [
+    HomePage(),
+    AccountPage(),
+    NotifyPage(),
+    AddScript(),
+    Connect(),
+  ];
 
-  @override
-  void initState() {
-    super.initState();
-    homePage = HomePage();
-    accountPage = AccountPage();
-    notifyPage = NotifyPage();
-    addScript = AddScript();
-    connect = Connect();
-    pages = [homePage, connect,addScript, notifyPage, accountPage ];
+  Widget currentScreen = HomePage();
 
-    currentPage = homePage;
-  }
-
+  final PageStorageBucket bucket = PageStorageBucket();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        elevation: 0.0,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white,
-        showUnselectedLabels: false,
-        backgroundColor:  Color(0xFF13131D),
-          onTap: (int index) {
-            setState(() {
-              currentTabbedIndex = index;
-              currentPage = pages[index];
-            });
-          },
-          currentIndex: currentTabbedIndex,
-          type: BottomNavigationBarType.fixed,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.now_widgets_outlined),
-              // ignore: deprecated_member_use
-              title: Text(".")
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.signal_cellular_alt_sharp),
-              // ignore: deprecated_member_use
-              title: Text(".")
-            ),
-            BottomNavigationBarItem(
-              icon: Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(40),
-                  color: Colors.blueGrey,
+      backgroundColor: Color(0xFF13131D),
+      body: PageStorage(
+        child: currentScreen,
+        bucket: bucket,
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          AddScript();
+        },
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        color: Color(0xFF13131D),
+        shape: CircularNotchedRectangle(),
+        child: Container(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              MaterialButton(
+                minWidth: 40,
+                onPressed: () {
+                  setState(() {
+                    currentScreen = HomePage();
+                    currentTab = 0;
+                  });
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.now_widgets_outlined,
+                        color: currentTab == 0 ? Colors.white : Colors.grey),
+                    Text('.',
+                        style: TextStyle(
+                            color:
+                                currentTab == 0 ? Colors.white : Colors.grey)),
+                  ],
                 ),
-              child: Icon(Icons.add)),
-              // ignore: deprecated_member_use
-              title: Text(".")
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.notifications_none),
-              // ignore: deprecated_member_use
-              title: Text(".")),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              // ignore: deprecated_member_use
-              title: Text(".", )
-            )
-          ]),
-      body: currentPage,
+              ),
+              MaterialButton(
+                minWidth: 40,
+                onPressed: () {
+                  setState(() {
+                    currentScreen = Connect();
+                    currentTab = 1;
+                  });
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.signal_cellular_alt_sharp,
+                        color: currentTab == 1 ? Colors.white : Colors.grey),
+                    Text('.',
+                        style: TextStyle(
+                            color:
+                                currentTab == 1 ? Colors.white : Colors.grey)),
+                  ],
+                ),
+              ),
+              MaterialButton(
+                minWidth: 40,
+                onPressed: () {
+                  setState(() {
+                    currentScreen = NotifyPage();
+                    currentTab = 2;
+                  });
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.notifications_none,
+                        color: currentTab == 2 ? Colors.white : Colors.grey),
+                    Text('.',
+                        style: TextStyle(
+                            color:
+                                currentTab == 2 ? Colors.white : Colors.grey)),
+                  ],
+                ),
+              ),
+              MaterialButton(
+                minWidth: 40,
+                onPressed: () {
+                  setState(() {
+                    currentScreen = AccountPage();
+                    currentTab = 3;
+                  });
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.person,
+                        color: currentTab == 3 ? Colors.white : Colors.grey),
+                    Text('.',
+                        style: TextStyle(
+                            color:
+                                currentTab == 3 ? Colors.white : Colors.grey)),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_share/flutter_share.dart';
 
 class MainDrawer extends StatefulWidget {
   @override
@@ -7,6 +8,14 @@ class MainDrawer extends StatefulWidget {
 }
 
 class _MainDrawerState extends State<MainDrawer> {
+    String link = 'https://tv24africa.com/';
+  Future<void> share(dynamic link, String title) async {
+    await FlutterShare.share(
+        title: 'Prayer Partner',
+        text: title,
+        linkUrl: link,
+        chooserTitle: 'Share prayer partner with friends?');
+  }
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -58,10 +67,16 @@ class _MainDrawerState extends State<MainDrawer> {
       ),
         Padding(
         padding: const EdgeInsets.only( left: 10),
-        child: ListTile(
-          title: Text('Recommend app', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-          ),
+        child: GestureDetector(
+          onTap: (){
+            share(link, 'text');
+          },
+                  child: ListTile(
+            
+            title: Text('Recommend app', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+            ),
+        ),
       ),
         Padding(
         padding: const EdgeInsets.only( left: 10),

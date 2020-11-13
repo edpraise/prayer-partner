@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
       title: 'Home',
       icon: Icons.home,
     ),
-    Categories(title: 'Cycling', icon: Icons.directions_bike),
+    Categories(title: 'Cycling', icon: Icons.directions_bike,),
     Categories(title: 'Swimming', icon: Icons.map),
     Categories(title: 'Meditation', icon: Icons.phone),
     Categories(title: 'CrossFit', icon: Icons.camera_alt),
@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                     children: List.generate(categories.length, (index) {
                       return Center(
                           child: CategoryListing(
-                        icon: Icon(categories[index].icon),
+                        icon: Icon(categories[index].icon,color: Colors.white,),
                         title: categories[index].title,
                         color: Color(0xFF13131D),
                       ));
