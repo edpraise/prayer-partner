@@ -47,7 +47,7 @@ class _MainDrawerState extends State<MainDrawer> {
           height: 1,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
-            color: Colors.grey
+            color: Color(0xFF232A4E),
           ),
         ),
         SizedBox(height: 10),

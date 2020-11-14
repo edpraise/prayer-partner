@@ -126,7 +126,7 @@ class TestimonyWidgets extends StatelessWidget {
             blurRadius: 7,
             offset: Offset(0, 3), // changes position of shadow
           ),
-        ], color: Color(0xFF13131D), borderRadius: BorderRadius.circular(5)),
+        ], color: Color(0xFF232A4E), borderRadius: BorderRadius.circular(5)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -135,7 +135,7 @@ class TestimonyWidgets extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(top:12.0,left: 15),
                   child: Container(
                     child: Text(
                       title,
@@ -144,33 +144,39 @@ class TestimonyWidgets extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(left:8.0, top: 10),
                   child: Text(
                     author,
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
+
+
+                SizedBox(height: 5,),
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: Container(
                       height: 100,
-                      width: 150,
+                      width: 200,
                       child: Text(content,
                           style: TextStyle(color: Colors.grey[400]),
                           overflow: TextOverflow.fade,
                           maxLines: 4)),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Icon(Icons.favorite, color: Colors.red),
-                    SizedBox(width: 5),
-                    Text(
-                      count,
-                      style: TextStyle(color: Colors.white),
-                    )
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(left:8.0, bottom: 1),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Icon(Icons.favorite, color: Colors.red),
+                      SizedBox(width: 5),
+                      Text(
+                        count,
+                        style: TextStyle(color: Colors.white),
+                      )
+                    ],
+                  ),
                 )
               ],
             ),

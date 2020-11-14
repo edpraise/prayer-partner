@@ -10,14 +10,17 @@ class _ChildBearingState extends State<ChildBearing> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.only(top:0.0, bottom: 200),
+     
       child: Container(
           child: Swiper(
         itemBuilder: (BuildContext context, int index) {
           return Stack(
             children: 
-            [Container(
-              height: MediaQuery.of(context).size.height/2,
+            [
+              
+              Container(
+              height: MediaQuery.of(context).size.height/0.5,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -42,12 +45,12 @@ class _ChildBearingState extends State<ChildBearing> {
                       child: Text(''''Plead my cause, O Lord, with them that strive with me: fight against them that fight against me. 2 Take hold of shield and buckler, and stand up for mine help.3 Draw out also the spear, and stop the way against them that persecute me: say unto my soul, I am thy salvation.'''''),
                     ),
                   ),
-                  SizedBox(height: 20,),
+                  // SizedBox(height: 20,),
                   Container(
                     height: 6,
                     width: MediaQuery.of(context).size.width/2,
                     decoration: BoxDecoration(
-                      color: Colors.black
+                      // color: Colors.black
                     ),
                   ),
                    SizedBox(height: 20,),
@@ -88,7 +91,14 @@ class _ChildBearingState extends State<ChildBearing> {
 
                 ]
               ),
-            )
+            ),
+            // Container(
+            //   decoration: BoxDecoration(
+            //     image: DecorationImage(
+            //       image: AssetImage(\)
+            //     )
+            //   ),
+            //   )
             ],
           );
         },

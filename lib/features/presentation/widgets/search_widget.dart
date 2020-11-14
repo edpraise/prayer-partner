@@ -4,14 +4,16 @@ class SearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left:8.0, right: 8),
+      padding: const EdgeInsets.only(left:25.0, right: 15),
       child: Container(
         decoration: BoxDecoration(
           color:  Color(0xFF232A4E),
           borderRadius: BorderRadius.circular(10),
         ),
         child: TextField(
+          style: TextStyle(color: Colors.white),
           decoration: InputDecoration(
+            fillColor: Colors.white,
            isDense: true,
             hintText: 'Search ',
             hintStyle: TextStyle(color: Colors.grey),

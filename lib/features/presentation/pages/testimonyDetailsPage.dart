@@ -45,22 +45,22 @@ class _TestimonyDetailsPageState extends State<TestimonyDetailsPage> {
                     ),
             Stack(children: [
               Positioned(
-                bottom: 10,
+                bottom: 140,
                 left: 20,
                 child: Container(
-                  height: 300,
+                  height: 350,
                   width: MediaQuery.of(context).size.width / 1.12,
-                  decoration: BoxDecoration(color: Color(0xFF13131D),),
+                  decoration: BoxDecoration(color: Color(0xFF1b213b),),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text('HOW GOD HEALED MY SON', style: TextStyle(color: Color(0xFFaba41d),fontSize: 10)),
+                        padding: const EdgeInsets.only(top:25.0, left: 10),
+                        child: Text('how God healed my son', style: TextStyle(color: Color(0xFFaba41d),fontSize: 15)),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.only(left:20.0,top:10, right: 10),
                         child: Text(''''Houston Chronicle the next day and see my name in the scoring column and ask himself "Could this be my son I have not seen nor spoken with for almost 20 years?" As "fate" (God's providence) would have it, I got a phone call the next day at the athletic dorm and in response to my "Hello", the voice on the other end of the line said "This is your father"! Talk about a providential moment in time! You could have picked me up off of the floor! Twenty years, not even a whisper, not even knowing if he was still alive, and then the first time I hear his voice to hear the words "This is your father"!''''', style: TextStyle(color: Colors.white,fontWeight: FontWeight.w200),),
                       )
                     ],

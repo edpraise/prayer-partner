@@ -51,7 +51,7 @@ class _NotifyPageState extends State<NotifyPage> {
               height: 1,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                color: Colors.grey
+                color: Color(0xFF13131D)
               ),
             ),
              Padding(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prayer_partner/features/presentation/pages/accountPage.dart';
 import 'package:prayer_partner/features/presentation/pages/addTextPage.dart';
+import 'package:prayer_partner/features/presentation/pages/createCard.dart';
 import 'package:prayer_partner/features/presentation/pages/homePage.dart';
 import 'package:prayer_partner/features/presentation/pages/notificationPage.dart';
 import 'package:prayer_partner/features/presentation/pages/testimoniesPage.dart';
@@ -26,23 +27,52 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF13131D),
+      backgroundColor:  Colors.transparent,
       body: PageStorage(
         child: currentScreen,
         bucket: bucket,
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          AddScript();
-        },
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom:10.0),
+        child: FloatingActionButton(
+          elevation: 10.0,
+          
+          onPressed: (){
+             Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => CreateCard()));
+          },
+              child: Container(
+                height: 60,
+                width: 60,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle, // circular shape
+                  gradient: LinearGradient(
+                    // end: Alignment.center,
+                    begin: Alignment.center,
+
+                    colors: [
+                      Color(0xFF3F5668),
+                      Color(0XFFe12160),
+                      Colors.red,
+                    ],
+                  ),
+                ),
+                child: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
+              ),
+            ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
       bottomNavigationBar: BottomAppBar(
         color: Color(0xFF13131D),
         shape: CircularNotchedRectangle(),
         child: Container(
-          height: 60,
+          height: 45,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -62,7 +92,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                     Text('.',
                         style: TextStyle(
                             color:
-                                currentTab == 0 ? Colors.white : Colors.grey)),
+                                currentTab == 0 ? Colors.white : Colors.black)),
                   ],
                 ),
               ),
@@ -82,7 +112,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                     Text('.',
                         style: TextStyle(
                             color:
-                                currentTab == 1 ? Colors.white : Colors.grey)),
+                                currentTab == 1 ? Colors.white : Colors.black)),
                   ],
                 ),
               ),
@@ -102,7 +132,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                     Text('.',
                         style: TextStyle(
                             color:
-                                currentTab == 2 ? Colors.white : Colors.grey)),
+                                currentTab == 2 ? Colors.white : Colors.black)),
                   ],
                 ),
               ),
@@ -122,7 +152,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                     Text('.',
                         style: TextStyle(
                             color:
-                                currentTab == 3 ? Colors.white : Colors.grey)),
+                                currentTab == 3 ? Colors.white : Colors.black )),
                   ],
                 ),
               ),
